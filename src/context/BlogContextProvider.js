@@ -34,7 +34,7 @@ const BlogContextProvider = (props) => {
         setcardList(cardsArray);
         setisLoading(false);
       });
-      return { cardList };
+      // return { cardList };
     }catch(err){
         alert(err.message)
     }
