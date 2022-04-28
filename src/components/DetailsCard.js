@@ -50,7 +50,7 @@ const DetailsCard = ({ cardDetail }) => {
               padding:"1.5rem",
             }}
           >
-            <Typography variant="h4" component="div" sx={{ mb : "1rem", fontWeight:"500" }}>
+            <Typography variant="h4" component="div" sx={{ mb : "1rem", fontWeight:"600" }}>
               <Box
                 component="div"
               >
@@ -65,7 +65,7 @@ const DetailsCard = ({ cardDetail }) => {
                 
               }}
             >
-            <Typography sx={{ mb: 3, overflowWrap:"break-word", textAlign:"left", lineHeight:"2rem", fontWeight:"600" }}>
+            <Typography sx={{ mb: 3, overflowWrap:"break-word", textAlign:"left", lineHeight:"2rem", fontWeight:"500" }}>
             {content}
             </Typography>
               
