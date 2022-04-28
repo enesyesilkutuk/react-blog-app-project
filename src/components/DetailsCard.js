@@ -37,26 +37,27 @@ const DetailsCard = ({ cardDetail }) => {
         <CardMedia
           component="img"
           image={imgUrl}
-          alt={imgUrl}
-          sx={{ cursor: "pointer", objectFit:"cover", display:"block", width:"10%", margin:"0 auto 2rem" }}
+          alt="image"
+          sx={{ objectFit:"cover", display:"block", width:"10%", height:"auto", margin:"0 auto 2rem" }}
+          draggable="false"
         />
         <CardContent
-          sx={{ padding: 0, whiteSpace: "nowrap" }}
+          sx={{ padding: 0 }}
         >
           <CardContent
             sx={{
               backgroundColor: "silver",
+              padding:"1.5rem",
             }}
           >
-            <Typography variant="h4" component="div">
+            <Typography variant="h4" component="div" sx={{ mb : "1rem", fontWeight:"500" }}>
               <Box
                 component="div"
               >
                 {title}
               </Box>
             </Typography>
-            <Typography sx={{ mb: 3 }} color="text.secondary"></Typography>
-            <Box
+              <Box
               component="div"
               sx={{
                 height:"200px",
@@ -64,7 +65,10 @@ const DetailsCard = ({ cardDetail }) => {
                 
               }}
             >
-              {content}
+            <Typography sx={{ mb: 3, overflowWrap:"break-word", textAlign:"left", lineHeight:"2rem", fontWeight:"600" }}>
+            {content}
+            </Typography>
+              
             </Box>
           </CardContent>
           <CardContent sx={{ marginTop:"1rem" }}>

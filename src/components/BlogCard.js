@@ -45,7 +45,7 @@ const BlogCard = ({card}) => {
         width= "350"
         image={imgUrl}
         alt={imgUrl}
-        sx={{ cursor: "pointer" }}
+        sx={{ cursor: "pointer", objectFit:"scale-down"}}
         onClick={(e) => detailsFunc(e.target)}
       />
       <CardContent
@@ -66,7 +66,7 @@ const BlogCard = ({card}) => {
               {title}
             </Box>
           </Typography>
-          {/* <Typography sx={{ mb: 1.5 }} color="text.secondary"></Typography> */}
+          <Typography sx={{ mb: 1.5 }} ></Typography>
           <Box
             component="div"
             sx={{
