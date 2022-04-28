@@ -9,7 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     getBlogs()
-  }, []);
+  }, [getBlogs]);
   
   return (
     <div>
