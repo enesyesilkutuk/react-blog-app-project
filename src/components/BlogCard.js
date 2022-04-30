@@ -13,6 +13,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../context/AuthContextProvider"
+import { toastInfoNotify } from "../helpers/toastNotify";
 
 const BlogCard = ({card}) => {
   const {content, title, imgUrl, email, id} = card;
@@ -23,7 +24,8 @@ const BlogCard = ({card}) => {
     if(currentUser){
       navigate(`/details/${id}`);
     }else{
-      alert("Please login for details of blog");
+      // alert("Please log in to see the details");
+      toastInfoNotify("Please log in to see the details");
       navigate("/login");
     }
   }

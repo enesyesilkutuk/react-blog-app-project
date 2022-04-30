@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContextProvider";
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 import { BlogContext } from "../context/BlogContextProvider";
+import { toastErrorNotify, toastSuccessNotify } from "../helpers/toastNotify";
 
 const NewBlog = () => {
   const navigate = useNavigate();
@@ -27,10 +28,12 @@ const NewBlog = () => {
     },
     onSubmit:async (values) => {
         try {
-          await addNewBlog(values)
-          navigate("/")
+          await addNewBlog(values);
+          toastSuccessNotify("New blog added successfuly");
+          navigate("/");
         } catch (err) {
-          alert(err.message)
+         // alert(err.message);
+         toastErrorNotify(err.message);
         }
     },
   });

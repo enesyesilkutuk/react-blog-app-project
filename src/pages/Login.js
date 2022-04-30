@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import googleIcon from "../assets/gfavicon.png";
 import { auth } from "../auth/firebase-config";
+import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "../helpers/toastNotify";
 
 const Schema = Yup.object().shape({
   email: Yup.string().email("Invalid Email").required("Email is required"),
@@ -26,13 +27,18 @@ const Login = () => {
     try{
       await signInWithPopup(auth, provider)
       .then((result) => {
-        const user = result.user
-        console.log(user)
+        const user = result.user;
+        console.log(user);
+        toastSuccessNotify("Signed in with Google successfully");
         navigate("/")
       }).catch((err) => {
-        alert(err.message)
+        // alert(err.message);
+        toastWarnNotify(err.message);
       })
-    }catch(err) {alert(err.message)}
+    }catch(err) {
+      // alert(err.message);
+      toastErrorNotify(err.message);
+    }
   }
 
   const formik = useFormik({
@@ -45,13 +51,15 @@ const Login = () => {
       try{
         await signInWithEmailAndPassword(auth, values.email, values.password)
       .then((result) => {
-        const user = result.user
-        console.log(user)
-        navigate("/")
+        const user = result.user;
+        console.log(user);
+        toastSuccessNotify("Logged in successfully");
+        navigate("/");
       })
       }catch(err){
-        alert(err.message)}
-      
+        // alert(err.message);
+        toastErrorNotify(err.message);
+      }
     }
   })
 

@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import googleIcon from "../assets/gfavicon.png";
 import { auth } from "../auth/firebase-config"
+import { toastErrorNotify, toastSuccessNotify, toastWarnNotify } from "../helpers/toastNotify";
 
 const Schema = Yup.object().shape({
   username: Yup.string()
@@ -44,12 +45,17 @@ const Register = () => {
       await signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user
-        console.log(user)
-        navigate("/")
+        console.log(user);
+        toastSuccessNotify("Registered with Google successfully");
+        navigate("/");
       }).catch((err) => {
-        alert(err.message)
+        // alert(err.message);
+        toastWarnNotify(err.message);
       })
-    }catch(err) {alert(err.message)}
+    }catch(err) {
+      // alert(err.message);
+      toastErrorNotify(err.message);
+    }
   }
 
   const formik = useFormik({

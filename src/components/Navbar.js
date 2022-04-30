@@ -13,6 +13,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../auth/firebase-config";
 import { Avatar } from "@mui/material";
 import LoginTwoToneIcon from "@mui/icons-material/LoginTwoTone";
+import { toastSuccessNotify } from "../helpers/toastNotify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -45,6 +46,7 @@ const Navbar = () => {
   const handleOut = async () => {
     setAnchorEl(null);
     await signOut(auth);
+    toastSuccessNotify("Logged out successfully");
     navigate("/");
   };
 

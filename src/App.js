@@ -2,6 +2,7 @@ import "./App.css";
 import AuthContextProvider from "./context/AuthContextProvider";
 import BlogContextProvider from "./context/BlogContextProvider";
 import AppRouter from "./router/AppRouter";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <BlogContextProvider>
         <AuthContextProvider>
           <AppRouter />
+          <ToastContainer />
         </AuthContextProvider>
       </BlogContextProvider>
     </div>
